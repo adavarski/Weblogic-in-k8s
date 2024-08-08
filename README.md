@@ -93,10 +93,19 @@ kubectl -n weblogic-operator-ns-local logs -c weblogic-operator deployments/webl
 The output will be similar to the following:
 
 ```bash
+$ kubectl -n weblogic-operator-ns-local logs -c weblogic-operator deployments/weblogic-operator
 Launching Oracle WebLogic Server Kubernetes Operator...
 VM settings:
-    Max. Heap Size (Estimated): 1.92G
-    Using VM: OpenJDK 64-Bit Server VM
+    Max. Heap Size (Estimated): 9.45G
+    Using VM: Java HotSpot(TM) 64-Bit Server VM
+
+{"timestamp":"2024-08-08T14:07:14.495044792Z","thread":1,"fiber":"","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.helpers.HealthCheckHelper","method":"createAndValidateKubernetesVersion","timeInMillis":1723126034495,"message":"Kubernetes version is: v1.30.3+k3s1","exception":"","code":"","headers":{},"body":""}
+{"timestamp":"2024-08-08T14:07:14.605003727Z","thread":1,"fiber":"","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.OperatorMain$MainDelegateImpl","method":"logStartup","timeInMillis":1723126034605,"message":"Oracle WebLogic Kubernetes Operator, version: 4.2.5, implementation: 1469541cfe267182b44bf54b3d86157cba63a946.1469541, build time: 2024-07-26T19:19:38+0000","exception":"","code":"","headers":{},"body":""}
+{"timestamp":"2024-08-08T14:07:14.608055329Z","thread":1,"fiber":"","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.OperatorMain$MainDelegateImpl","method":"lambda$logStartup$0","timeInMillis":1723126034608,"message":"The following optional operator features are enabled: []","exception":"","code":"","headers":{},"body":""}
+{"timestamp":"2024-08-08T14:07:14.6106433Z","thread":1,"fiber":"","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.OperatorMain$MainDelegateImpl","method":"logStartup","timeInMillis":1723126034610,"message":"Operator namespace is: weblogic-operator-ns-local","exception":"","code":"","headers":{},"body":""}
+{"timestamp":"2024-08-08T14:07:14.612269599Z","thread":1,"fiber":"","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.OperatorMain$MainDelegateImpl","method":"logStartup","timeInMillis":1723126034612,"message":"Operator service account is: weblogic-operator-sa-local","exception":"","code":"","headers":{},"body":""}
+{"timestamp":"2024-08-08T14:07:15.22076161Z","thread":71,"fiber":"-fiber-1 NOT_COMPLETE","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.OperatorMain$ReadResponseStep","method":"onSuccess","timeInMillis":1723126035220,"message":"The Custom Resource Definition (CRD) for domains.weblogic.oracle is not installed, waiting for 10 seconds for the CRD to be installed.","exception":"","code":"","headers":{},"body":""}
+{"timestamp":"2024-08-08T14:07:25.645064316Z","thread":85,"fiber":"fiber-1 NOT_COMPLETE","namespace":"","domainUID":"","level":"INFO","class":"oracle.kubernetes.operator.OperatorMain","method":"logStartingLivenessMessage","timeInMillis":1723126045645,"message":"Starting operator liveness Thread","exception":"","code":"","headers":{},"body":""}
 
 ```
 
