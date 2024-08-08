@@ -271,5 +271,4 @@ open http://localhost/console
 If you want to delete the cluster entirely, including all data and state, you can use the following command.
 
 ```bash
-k3d delete cluster wlc-operator
-k3d
+k3d cluster delete wlc-operator
