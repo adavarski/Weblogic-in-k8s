@@ -14,7 +14,7 @@ Deployment of a WebLogic Server in Kubernetes Using the WebLogic Kubernetes Oper
 To build the Kubernetes cluster locally we will use Docker and minikube.
 
 ```bash
-k3d create cluster wls-operator
+k3d cluster create wls-operator
 ```
 
 ```bash
