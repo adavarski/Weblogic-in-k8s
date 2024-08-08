@@ -201,10 +201,10 @@ kubectl -n wls-test-domain-ns get svc
 
 # Output will be like the following:
 $ kubectl -n wls-test-domain-ns get svc
-NAME                                TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
-wls-test-domain-admin-server        ClusterIP   None            <none>        7001/TCP   38m
-wls-test-domain-cluster-cluster-1   ClusterIP   10.43.163.192   <none>        8001/TCP   38m
-wls-test-domain-managed-server1     ClusterIP   None            <none>        8001/TCP   38m
+NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+wls-test-domain-admin-server        ClusterIP   None           <none>        7001/TCP   106s
+wls-test-domain-cluster-cluster-1   ClusterIP   10.43.248.94   <none>        8001/TCP   71s
+wls-test-domain-managed-server1     ClusterIP   None           <none>        8001/TCP   71s
 
 ```
 
@@ -212,8 +212,7 @@ wls-test-domain-managed-server1     ClusterIP   None            <none>        80
 
 Formulate an ingress pathway for the specific domain within the corresponding domain namespace, utilizing the subsequent YAML file.
 
-```bash
-
+```
 kubectl create namespace traefik
 
 
@@ -234,10 +233,10 @@ kubectl -n wls-test-domain-ns apply -f ingress-route.yaml
 ```
 
 kubectl -n wls-test-domain-ns get svc
-NAME                                TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE
-wls-test-domain-admin-server        ClusterIP   None            <none>        7001/TCP   38m
-wls-test-domain-cluster-cluster-1   ClusterIP   10.43.163.192   <none>        8001/TCP   38m
-wls-test-domain-managed-server1     ClusterIP   None            <none>        8001/TCP   38m
+NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+wls-test-domain-admin-server        ClusterIP   None           <none>        7001/TCP   4m3s
+wls-test-domain-cluster-cluster-1   ClusterIP   10.43.248.94   <none>        8001/TCP   3m28s
+wls-test-domain-managed-server1     ClusterIP   None           <none>        8001/TCP   3m28s
 
 Browser: 
 
