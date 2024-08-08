@@ -260,4 +260,4 @@ This allows you to run and test services locally in an environment that is more 
 If you want to delete the cluster entirely, including all data and state, you can use the following command.
 
 ```bash
-k3d cluster delete wlc-operator
+k3d cluster delete wls-operator
