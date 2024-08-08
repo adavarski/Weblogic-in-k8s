@@ -230,13 +230,13 @@ helm upgrade traefik-operator traefik/traefik \
 
 
 kubectl -n wls-test-domain-ns apply -f ingress-route.yaml
-```
 
 kubectl -n wls-test-domain-ns get svc
 NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
 wls-test-domain-admin-server        ClusterIP   None           <none>        7001/TCP   4m3s
 wls-test-domain-cluster-cluster-1   ClusterIP   10.43.248.94   <none>        8001/TCP   3m28s
 wls-test-domain-managed-server1     ClusterIP   None           <none>        8001/TCP   3m28s
+```
 
 Browser: 
 
