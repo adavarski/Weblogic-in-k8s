@@ -231,18 +231,18 @@ helm upgrade traefik-operator traefik/traefik \
 
 kubectl -n wls-test-domain-ns apply -f ingress-route.yaml
 
-kubectl -n wls-test-domain-ns get svc
-NAME                                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
-wls-test-domain-admin-server        ClusterIP   None           <none>        7001/TCP   4m3s
-wls-test-domain-cluster-cluster-1   ClusterIP   10.43.248.94   <none>        8001/TCP   3m28s
-wls-test-domain-managed-server1     ClusterIP   None           <none>        8001/TCP   3m28s
+kubectl get svc  -n kube-system
+NAME             TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+kube-dns         ClusterIP      10.43.0.10     <none>        53/UDP,53/TCP,9153/TCP       27m
+metrics-server   ClusterIP      10.43.51.120   <none>        443/TCP                      27m
+traefik          LoadBalancer   10.43.202.52   172.19.0.2    80:31776/TCP,443:32202/TCP   26m
 ```
 
 Browser: 
 
-http://172.18.0.2/console/
+http://172.19.0.2/console/
 
-http://172.18.0.2/quickstart/
+http://172.19.0.2/quickstart/
 
 Welcome to the WebLogic on Kubernetes Quick Start Sample
 
