@@ -214,16 +214,16 @@ Formulate an ingress pathway for the specific domain within the corresponding do
 
 ```bash
 
-$ kubectl create namespace traefik
+kubectl create namespace traefik
 
 
-$ helm install traefik-operator traefik/traefik \
+helm install traefik-operator traefik/traefik \
     --namespace traefik \
     --set "ports.web.nodePort=30305" \
     --set "ports.websecure.nodePort=30443" \
     --set "kubernetes.namespaces={traefik}"
 
-$      helm upgrade traefik-operator traefik/traefik \
+helm upgrade traefik-operator traefik/traefik \
     --namespace traefik \
     --reuse-values \
     --set "kubernetes.namespaces={traefik,wls-test-domain-ns}"
@@ -239,11 +239,13 @@ wls-test-domain-admin-server        ClusterIP   None            <none>        70
 wls-test-domain-cluster-cluster-1   ClusterIP   10.43.163.192   <none>        8001/TCP   38m
 wls-test-domain-managed-server1     ClusterIP   None            <none>        8001/TCP   38m
 
-    http://172.18.0.2/console/login/LoginForm.jsp
-    
-    http://172.18.0.2/quickstart/
-    
-    Welcome to the WebLogic on Kubernetes Quick Start Sample
+Browser: 
+
+http://172.18.0.2/console/
+
+http://172.18.0.2/quickstart/
+
+Welcome to the WebLogic on Kubernetes Quick Start Sample
 
 WebLogic Server Name: managed-server1
 Pod Name: wls-test-domain-managed-server1
@@ -252,28 +254,7 @@ Current time: 13:31:53
 
 By default, when you create a service of type LoadBalancer in a Kubernetes cluster, it's the responsibility of the cloud provider's network infrastructure to provision a network load balancer and to create routes so that the service can be accessed via the external IP address of the load balancer.
 
-However, when you're running Kubernetes locally with Minikube, there's no underlying cloud provider network infrastructure to do this. As a result, while you can create a LoadBalancer service in Minikube, it won't get an external IP by default. It will stay in the `pending` state indefinitely if you try to check the external IP.
-
-```bash
-kubectl -n traefik-ns-local get svc
-```
-
-To solves this problem by creating a network route on your machine to services deployed with type `LoadBalancer` and provides them with a real IP address as if they were running in a cloud provider's network. 
-
-```bash
-# Open a new tab in your terminal
-minikube tunnel
-```
-
 This allows you to run and test services locally in an environment that is more similar to a full-scale, hosted Kubernetes environment.
-
-You would use `minikube tunnel` whenever you want to expose a LoadBalancer service running in your Minikube cluster to be accessible from your local machine. Note that running minikube tunnel requires administrative privileges because it configures network routing rules on your machine.
-
-Access to the WebLogic Server Administration Console.
-
-```bash
-open http://localhost/console
-```
 
 ## Clean up
 
