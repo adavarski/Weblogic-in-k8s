@@ -66,6 +66,16 @@ helm install weblogic-operator weblogic-operator/weblogic-operator \
 --set "domainNamespaceLabelSelector=weblogic-operator\=enabled" \
 --wait
 ```
+NOTE: For OpenShift (CRC) : --set "kubernetesPlatform=OpenShift"
+helm install weblogic-operator weblogic-operator/weblogic-operator \
+--namespace weblogic-operator-ns-local \
+--set "serviceAccount=weblogic-operator-sa-local" \
+--set "enableClusterRoleBinding=true" \
+--set "domainNamespaceSelectionStrategy=LabelSelector" \
+--set "domainNamespaceLabelSelector=weblogic-operator\=enabled" \
+--set "kubernetesPlatform=OpenShift" \
+--wait
+
 
 The output will be similar to the following:
 
